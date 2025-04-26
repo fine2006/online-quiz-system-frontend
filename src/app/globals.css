@@ -1,26 +1,40 @@
-@import "tailwindcss";
+/* src/app/globals.css */
+@tailwind preflight; /* Replaces @tailwind base; */
+/* @tailwind components; is handled differently in v4 */
+@tailwind utilities; /* Retained/used alongside preflight in v4 */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Add any global base styles here */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-gray-100 text-gray-900;
+}
+
+/* Basic Button Styling */
+.btn {
+  @apply px-4 py-2 rounded font-semibold transition-colors duration-200;
+}
+.btn-primary {
+  @apply bg-blue-600 text-white hover:bg-blue-700;
+}
+.btn-secondary {
+  @apply bg-gray-500 text-white hover:bg-gray-600;
+}
+.btn-danger {
+  @apply bg-red-600 text-white hover:bg-red-700;
+}
+.btn-warning {
+  @apply bg-yellow-500 text-black hover:bg-yellow-600;
+}
+
+/* Basic Form Input Styling */
+.form-input {
+  @apply block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm;
+}
+.form-label {
+  @apply block text-sm font-medium text-gray-700 mb-1;
+}
+.form-checkbox {
+  @apply h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded;
+}
+.form-radio {
+  @apply h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300;
 }
